@@ -1,0 +1,288 @@
+body {
+    font-family: メイリオ ,Osaka;    /* 全体のフォント */
+    font-size: 10pt;                /* 全体の文字サイズ */
+    margin: 0px;                    /* マージンを指定 */
+    padding: 0px;                   /* パディングを指定 */
+    line-height: 1.6em;             /* 行高を文字の1.6倍 */
+    background-color: #eaeaea;      /* 背景色を薄いグレー */
+}
+/* エラーメッセージ */
+.error{
+    font-size: 0.8em;
+    color: red;
+}
+/* ナビゲーションパネル */
+.navigation_sub{
+    height: 30px;
+    border: solid 1px #999999;
+    margin: 20px auto;
+    padding:5px 10px 5px 500px;
+    text-align: right;
+}
+/**********************フッターのスタイル **********************/
+address{
+    font-size: 0.8em;           /* 文字サイズ（小） */
+    text-align: center;         /* 中央揃え */
+    border-top: solid 1px #999; /* ボーダー（上） */
+    margin-top: 50px;           /* マージン（上） */
+    background-color: #cccccc;  /* 背景色 */
+    font-style: normal;         /* 斜体の解除 */
+    clear:both;                 /* フロートの解除 */
+}
+
+/****************************** 
+    index_contentのスタイル
+******************************/
+/* ナビゲーションパネル */
+.navigation{
+    border: solid 1px #ff6600;  /* ボーダー */
+    margin: 0px 10px 0px 10px;  /* マージン */
+    padding: 5px 10px 0px 10px; /* パディング */
+    text-align: center;         /* 中央揃え */
+}
+/* ナビゲーションボタン */
+.margin {
+    margin-right:3px;
+}							
+/* リスト */
+.list {
+    font-size: 1.0em;
+}
+/* ラジオボタン */
+.radio {
+    font-size: 0.8em;
+}
+/* セレクトメニュー */
+.select_menu{
+    height: 50px;
+    border: solid 1px #ff6600;
+    margin: 10px 10px 10px 10px;
+
+}
+/* 左端のボタンに適用 */
+.pagingBtn {
+    padding-left:80px;
+}
+/* 書籍データの表示 */
+.book{
+    border: solid 1px #ff6600;
+    margin: 10px 10px 10px 10px;
+}
+/* 書籍タイトル */
+.title{
+    font-size: 1.2em;
+}
+/* 説明文 */
+.exp{
+    display: block;
+    padding-left: 30px;
+}
+/* 行のスタイル */
+.r1 {
+    background-color: #cccccc;	/* 背景色 */
+}
+/* 1列目のスタイル */
+.c1 {
+    width: 150px;           /* 横幅を150pxに */
+    padding: 10px;          /* 左側に10pxの余白 */
+    vertical-align: top;    /* 要素を上に詰めて配置 */
+    text-align: center;     /* センタリング */
+}
+/* 2列目のスタイル */
+.c2 {
+    vertical-align: top;    /* 要素を上に詰めて配置 */
+    padding: 10px;          /* パディング */
+}
+/* 3列目のスタイル */
+.c3 {
+    width: 130px;           /* 横幅を130pxに */
+    padding: 10px;          /* 左端に10pxの余白 */
+    vertical-align: top;    /* 要素を上に詰めて配置 */
+    text-align: center;     /* センタリング */
+}
+/******************************
+    detail_contentのスタイル
+******************************/
+/* 書籍イメージ */
+#book_img {
+    float: left;                /* 左へフロート */
+    margin-right: 20px;
+    padding: 10px;
+    border: solid 1px #999999;  /* ボーダーを表示 */
+
+}
+/* 説明文 */
+#exp {
+    height:600px;
+    display: block;
+}
+/* 戻るボタン */
+#back_btn{
+    text-align: right;
+}
+/* カートボタン */
+#cart_btn {
+    margin-top: 20px;
+}
+/* 書籍タイトル */
+.title_detail{
+    display: box;
+    font-size: 1.5em;
+}
+/* 価格 */
+.price {
+    display: block;
+    padding-top:10px;
+    font-size: 1.5em;
+    color:  #ff0066;
+}
+/* 説明文 */
+.text {
+    display:  block;
+    padding-top: 15px;
+}
+/******************************
+    cart_contentのスタイル
+******************************/
+/* 削除のリンク */
+.del_link{
+    display: block;
+    padding:15px;
+ }  
+/* 書籍タイトル */
+.title_cart{
+     font-size: 1.2em;
+ }
+/* エラーメッセージ */
+.msg{
+    font-size: 0.8em;
+    color:red;
+}
+/* 金額 */
+.price{
+    color:red;
+    font-size: 1.5em;
+}
+/* 数量ボックス */
+.quantity{
+    text-align: center;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+/******************************
+    orderForm_contentのスタイル
+******************************/    
+/* グリッドのヘッダー */
+.o_header{
+    font-size: 1.8em;
+    padding-bottom: 20px;
+}
+/* グリッドのフッター */
+.o_footer{
+    font-size: 1.2em;
+    padding-bottom: 20px;
+    text-align: center;
+}
+/* グリッドの列 */
+.order_column1 {
+	width:150px;			/* 幅を150pxにする */
+	padding:5px 10px 3px 10px;	/* 上、右、下、左の順にパディングを指定 */
+	vertical-align: top;		/* 上端揃え */
+	text-align: right;		/* 右端揃え */
+	border-right:solid 1px #999999;	/* 左にボーダー */
+}
+.order_column2 {
+	width:300px;			/* 幅を300pxにする */
+	padding:5px 3px 3px 10px;	/* 上、右、下、左の順にパディングを指定 */
+	vertical-align: top; 		/* 上端揃え */
+}
+.order_column3 {
+	width:250px;			/* 幅を250pxにする */
+	padding:5px 3px 3px 10px;	/* 上、右、下、左の順にパディングを指定 */
+	vertical-align: top; 		/* 上端揃え */
+}
+/* インプットボックス */
+.input{
+    padding: 3px;
+    font-size: 1em;
+}
+/* 確定ボタン */
+.conf_btn{
+    margin: 30px 150px 0 0;
+    width:200px;
+    height:25px;
+}
+/******************************
+   registration_contentと
+   login_contentのスタイル
+******************************/
+/* グリッド */
+.input_grid{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+/* グリッドの列 */
+.input_column{
+    font-size: 1.2em;
+    width: 100px;
+    text-align: center;
+    padding-right: 5px;
+}
+/* グリッドの行 */
+.input_row{
+    height:40px;
+}
+/* グリッドのヘッダー */
+.reg_login_header{
+    font-size: 1.5em;
+    padding-bottom: 5px;
+}
+/* インプットボックス */
+.reg_login_input {
+    font-size: 1.1em;
+    border:none;
+    padding: 5px;
+    background-color:  #ffffcc;
+}
+/* ボタン */
+.pushBtn{
+    margin-top: 10px;
+    width:130px;
+    height:30px;
+}
+/******************************
+    history_contentのスタイル
+******************************/
+/* ナビゲーション */
+.nav{
+    text-align: right;
+    margin: -7px 0px 20px 0px;
+    background-color: #cccccc;
+    padding: 5px 5px 5px 5px;
+   
+}
+/* 列のスタイル */
+.history_column1{
+    padding: 10px 5px;
+    width: 180px;
+    vertical-align: top;
+}
+.history_column3{
+    width: 150px;
+}
+.history_column4{
+    padding-left: 10px;
+    vertical-align: top;
+    width: 180px;
+}
+.history_column5{
+    vertical-align: top;
+    width: 120px;
+}
+.history_column6{
+    vertical-align: top;
+
+}

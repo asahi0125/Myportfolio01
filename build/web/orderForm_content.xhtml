@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+  <title>order</title>
+  <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+    </head>
+    <body>
+        <ui:composition>
+        <h:form>
+        <div class="navigation_sub">
+            <h:link outcome="cart">
+          <h:graphicImage library="images"
+                            name="back.png"
+                            style="margin-right: 5px;"/>
+            </h:link>
+        </div>
+        <h:panelGrid columns="3"
+                     styleClass="grid"
+                     columnClasses="order_column1,
+                                    order_column2,
+                                    order_column3"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    rowClasses=""
+                                    headerClass="o_header"
+                                    footerClass="o_footer">
+            <f:facet name="header">
+                <h:outputLabel value="お届け先とお支払方法の指定"/>
+            </f:facet>
+                <h:outputLabel value="お名前"/>
+            <h:inputText id="name"
+                         value="#{oerderHandler.customer_name}"
+                         size="30"
+                         required="true"
+                         label="お名前"
+                         styleClass="input">
+          <f:ajax event="blur" render="name_msg"/>
+            </h:inputText>
+            <h:message id="name_msg" for="name"  styleClass="error"/>
+                <h:outputLabel value="お届け先住所"/>
+            <h:inputText id="address"
+                         value="#{oerderHandler.customer_address}"
+                         size="30"
+                         required="true"
+                         label="お届け先住所"
+                         styleClass="input">
+          <f:ajax event="blur" render="address_msg"/>
+            </h:inputText>      
+            <h:message id="address_msg" for="address" styleClass="error"/>
+                        <h:outputLabel value="メールアドレス"/>
+            <h:inputText id="mail"
+                         value="#{oerderHandler.customer_mail}"
+                         size="30"
+                         required="true"
+                         label="メールアドレス"
+                         styleClass="input">
+          <f:ajax event="blur" render="mail_msg"/>
+            </h:inputText>      
+            <h:message id="mail_msg" for="mail" styleClass="error"/>
+                <h:outputLabel value="お支払方法"/>
+                <h:selectOneRadio value="#{oerderHandler.selectedPayItem}">
+                    <f:selectItems value="#{oerderHandler.payItem}"/>
+                </h:selectOneRadio>
+                <h:outputLabel
+                    value="※銀行振込みをご指定の場合、
+                    振込先につきましては追ってご連絡します。"/>
+
+                <h:outputLabel value="ご要望等"/>
+                    <h:inputTextarea id="msg"
+                                     value="#{oerderHandler.customer_msg}"
+                                     cols="40"
+                                     rows="5"
+                                     styleClass="input"/>
+                <h:message id="msg_msg" for="msg" styleClass="error"/>
+                <f:facet name="footer">
+                  <h:commandButton action="#{oerderHandler.buy()}"
+                                   value="注文を確定する"
+                                   styleClass="conf_btn"/>
+                </f:facet>
+            </h:panelGrid>
+          </h:form>
+        </ui:composition>
+    </body>
+</html>
+

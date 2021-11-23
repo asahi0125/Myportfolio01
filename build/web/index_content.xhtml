@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>トップページ</title>
+        <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+    </head>
+    <body>
+        <ui:composition>
+            <p:growl showDetail="false" life="3000"/>
+            <h:form>
+                <div class="navigation">
+                    <h:link outcome="registration.xhtml">
+                        <h:graphicImage library="images"
+                                        name="leg.png"
+                                        styleClass="margin"/>
+                    </h:link>
+                    <h:commandLink action="#{oerderHandler.showCart()}">
+                        <h:graphicImage library="images"
+                                        name="cart.png"
+                                        styleClass="margin"/>
+                    </h:commandLink>
+                    <h:link outcome="/info/history.xhtml">
+                        <h:graphicImage library="images"
+                                        name="history.png"
+                                        styleClass="margin"/>
+                    </h:link>
+                    <h:link outcome="/info/login.xhtml">
+                        <h:graphicImage library="images"
+                                        name="login.png"
+                                        styleClass="margin"/>
+                    </h:link>
+                    <h:commandLink action="#{loginBean.logout()}">
+                        <h:graphicImage library="images"
+                                        name="logout.png"/>
+                    </h:commandLink>        
+                </div>
+                <div class="select_menu">
+                    <h:panelGrid columns="7" style="padding: 10px;">
+                        <h:selectOneRadio value="#{oerderHandler.selectedGenreItem}"
+                                          styleClass="radio">
+                            <f:selectItems value="#{oerderHandler.genreItems}" />
+                            <f:ajax event="change"
+                                     render="productTbl" 
+                                     listener="#{oerderHandler.resetRecordsNumber()}"/>
+                        </h:selectOneRadio>
+                        
+                        <h:outputLabel value="並び替え"/>
+                        <h:selectOneMenu value="#{oerderHandler.selectedSortItem}"
+                                           styleClass="list">
+                            <f:selectItems value="#{oerderHandler.sortItems}" />
+                            <f:ajax event="change"
+                                    render="productTbl"
+                                    listener="#{oerderHandler.resetRecordsNumber()}"/>
+                        </h:selectOneMenu>
+                        
+                        <h:commandLink action="#{oerderHandler.pagenate.moveTop()}">
+                            <f:ajax render="productTbl"/>
+                            <h:graphicImage library="images"
+                                            name="top.png" 
+                                            styleClass="pagingBtn"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{oerderHandler.pagenate.movePrev()}">
+                            <f:ajax render="productTbl"/>
+                            <h:graphicImage library="images" name="prev.png"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{oerderHandler.pagenate.moveNext()}">
+                            <f:ajax render="productTbl"/>
+                            <h:graphicImage library="images" name="next.png"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{oerderHandler.pagenate.moveLast()}">
+                            <f:ajax render="productTbl"/>
+                            <h:graphicImage library="images" name="end.png"/>
+                        </h:commandLink>
+                    </h:panelGrid>
+                </div>
+                <div class="book">
+                <h:dataTable id="productTbl"
+                             value="#{oerderHandler.bookRecord}"
+                             var="item" 
+                             headerClass="hd1"
+                             rowClasses="r1"
+                             columnClasses="c1,c2,c3">
+                    <h:column >
+                        <h:commandLink action="#{oerderHandler.detail(item)}">
+                            <p:graphicImage value="#{oerderHandler.thumbnail}" >
+                                <f:param name="book_id" value="#{item.id}"/>
+                            </p:graphicImage>
+                        </h:commandLink>
+                    </h:column>
+                    <h:column>
+                        <h:commandLink action="#{oerderHandler.detail(item)}">
+                            <h:outputText value="#{item.title}" styleClass="title"/>
+                        </h:commandLink>
+                        <h:outputText  value="#{item.exp}" styleClass="exp"/>
+                    </h:column>
+                    <h:column >
+                        <h:outputText value="#{item.price}" styleClass="q_inp">
+                            <f:convertNumber type="currency" locale="ja_JP"/>
+                        </h:outputText>
+                    </h:column>
+
+
+                </h:dataTable>
+                </div>
+            </h:form>
+        </ui:composition>
+    </body>
+</html>

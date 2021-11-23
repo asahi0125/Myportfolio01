@@ -1,0 +1,25 @@
+/* ページ全体のラッパー */
+#rapper{
+    width:800px;
+    border: solid 1px #ff6600;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* ヘッダーの横幅は800px */
+#header {
+    width:800px;
+    margin: 0px;
+}
+
+/* メインコンテンツの横幅は800px */
+#content    {
+    width:800px;
+    margin: 0px;
+}
+
+/* フッターの横幅は800px */
+#footer {
+    width:800px;
+    margin: 0px;
+}
+
